@@ -1,6 +1,4 @@
-package Simulation.Aircraft;
-
-import Simulation.Weather.WeatherTower;
+package Simulation;
 
 public interface Flyable {
     public void updateConditions();

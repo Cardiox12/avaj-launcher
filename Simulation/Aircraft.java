@@ -1,6 +1,4 @@
-package Simulation.Aircraft;
-
-import Simulation.Coordinates;
+package Simulation;
 
 public class Aircraft {
     protected long id;

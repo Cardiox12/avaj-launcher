@@ -1,7 +1,4 @@
-package Simulation.Aircraft;
-
-import Simulation.Coordinates;
-import Simulation.Weather.WeatherTower;
+package Simulation;
 
 public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
@@ -11,7 +8,13 @@ public class Helicopter extends Aircraft implements Flyable {
     }
 
     public void updateConditions() {
-        
+        WeatherCommand sun = new WeatherCommand().increaseLongitude(10).increaseHeight(2);
+        WeatherCommand rain = new WeatherCommand().increaseLongitude(5);
+        WeatherCommand fog = new WeatherCommand().increaseLongitude(1);
+        WeatherCommand snow = new WeatherCommand().decreaseHeight(12);
+        Weather weather = new Weather(coordinates, sun, rain, fog, snow);
+
+        weather.execute(this.weatherTower.getWeather(this.coordinates));
     }
 
     public void registerTower(WeatherTower weatherTower) {

@@ -1,6 +1,4 @@
-package Simulation.Weather;
-
-import Simulation.Coordinates;
+package Simulation;
 
 public class WeatherProvider {
     private static WeatherProvider weatherProvider;
