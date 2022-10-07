@@ -18,12 +18,16 @@ public class Weather {
     public void execute(String weather) {
         switch (weather) {
             case "SUN":
+                this.sun.execute(this.coordinates);
                 break;
             case "RAIN":
+                this.rain.execute(this.coordinates);;
                 break;
             case "FOG":
+                this.fog.execute(this.coordinates);
                 break;
             case "SNOW":
+                this.snow.execute(this.coordinates);
                 break;
         }
     }
