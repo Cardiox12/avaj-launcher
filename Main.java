@@ -1,5 +1,16 @@
+import java.io.IOException;
+
+import Simulation.Simulation;
+import Simulation.Exceptions.SimulationException;
+
 public class Main {
-    static void main(String[] args) {
-        System.out.println("Hello, World!");
+    public static void main(String[] args) {
+        Simulation simulation = new Simulation();
+
+        try {
+            simulation.execute("scenario.txt");
+        } catch (SimulationException e) {
+            System.out.println(e.toString());
+        }
     }
 }
