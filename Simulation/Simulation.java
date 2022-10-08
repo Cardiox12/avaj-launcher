@@ -63,10 +63,4 @@ public class Simulation {
             }
         }
     }
-
-    public void show() {
-        for ( Instruction instruction : this.instructions ) {
-            System.out.println(instruction);
-        }
-    }
 }

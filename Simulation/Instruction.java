@@ -24,23 +24,12 @@ public class Instruction {
         int latitude;
         int height;
 
-        for ( String token : tokens ) {
-            System.out.println(token);
-        }
-        System.out.println("\n\n");
-
         this.type = new String(tokens[0]);
         this.name = new String(tokens[1]);
-        longitude = Integer.parseInt(tokens[2]);
-        latitude = Integer.parseInt(tokens[3]);
+        longitude = Integer.parseInt(tokens[2]) % SimulationConstants.MAX_LONGITUDE;
+        latitude = Integer.parseInt(tokens[3]) % SimulationConstants.MAX_LATITUDE;
         height = Integer.parseInt(tokens[4]);
 
-        if ( longitude < 0 || longitude > SimulationConstants.MAX_LONGITUDE ) {
-            throw new ScenarioCoordinatesOutOfBoundException();
-        }
-        if ( latitude < 0 || latitude > SimulationConstants.MAX_LATITUDE ) {
-            throw new ScenarioCoordinatesOutOfBoundException();
-        }
         if ( height < 0 || height > SimulationConstants.MAX_HEIGHT ) {
             throw new ScenarioCoordinatesOutOfBoundException();
         }
@@ -64,7 +53,7 @@ public class Instruction {
     }
 
     public String toString() {
-        return String.format("Type=%s Name=%s (%i %i %i)", 
+        return String.format("Type=%s Name=%s (%d %d %d)", 
             this.type, 
             this.name, 
             this.coordinates.getLongitude(), 
