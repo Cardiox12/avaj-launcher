@@ -8,7 +8,7 @@ public class Main {
         Simulation simulation = new Simulation();
 
         try {
-            simulation.execute("scenario.txt");
+            simulation.readScenario("scenario.txt");
         } catch (SimulationException e) {
             System.out.println(e.toString());
         }

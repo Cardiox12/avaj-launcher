@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Vector;
 
+// import Simulation.Aircraft.Aircraft;
+// import Simulation.Aircraft.Flyable;
 import Simulation.Exceptions.ScenarioIOException;
 import Simulation.Exceptions.ScenarioInstructionException;
 import Simulation.Exceptions.ScenarioIterationNotValid;
@@ -22,15 +24,13 @@ public class Simulation {
         this.instructions = new Vector<Instruction>();
     }
 
-    public void execute(String path) throws SimulationException {
+    public void readScenario(String path) throws SimulationException {
         File file = new File(path);
         String line;
         BufferedReader br = null;
         Instruction instruction;
         int line_number = 1;
 
-        // TODO: Verify same id
-        // TODO: verify height
         try { 
             br = new BufferedReader(new FileReader(file));
     
@@ -61,6 +61,22 @@ public class Simulation {
             } catch (IOException e){
                 throw new ScenarioIOException();
             }
+        }
+    }
+
+    public void execute() {
+        // AircraftFactory factory = new AircraftFactory();
+        // Tower tower = new Tower();
+        // Flyable flyable;
+
+        // for ( Instruction instruction : this.instructions ) {
+        //     flyable = factory.newAircraft(null, null, iterations, iterations, iterations)
+        // }
+    }
+
+    public void show() {
+        for ( Instruction instruction : this.instructions ) {
+            System.out.println(instruction);
         }
     }
 }

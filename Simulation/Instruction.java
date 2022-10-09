@@ -10,9 +10,15 @@ public class Instruction {
     private String name;
     private Coordinates coordinates;
     private String instruction;
+    private InstructionChecker checker;
 
     public Instruction(String instruction) {
         this.instruction = instruction;
+        this.checker = new InstructionChecker();
+
+        this.checker.add("Baloon")
+                    .add("Helicopter")
+                    .add("JetPlane");
     }
 
     public void parseInstruction() throws SimulationException {
@@ -37,7 +43,7 @@ public class Instruction {
     }
 
     public boolean isValid() {
-        return this.instruction.matches(Instruction.regex);
+        return this.checker.matches(instruction);
     }
 
     public String getType() {
