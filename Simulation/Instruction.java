@@ -5,7 +5,6 @@ import Simulation.Exceptions.ScenarioInstructionException;
 import Simulation.Exceptions.SimulationException;
 
 public class Instruction {
-    private static final String regex = "^(\\w*)(\\s+)(\\w{1}\\d+)(\\s+)(\\d+\\s+){2}(\\d+)$";
     private String type;
     private String name;
     private Coordinates coordinates;
