@@ -6,6 +6,6 @@ public class ScenarioInstructionException extends SimulationException {
     }
 
     public ScenarioInstructionException(int line) {
-        super(String.format("Instruction not valid at line %i", line));
+        super(String.format("Instruction not valid at line %d", line));
     }
 }

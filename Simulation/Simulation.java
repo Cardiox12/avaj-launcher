@@ -65,13 +65,25 @@ public class Simulation {
     }
 
     public void execute() {
-        // AircraftFactory factory = new AircraftFactory();
-        // Tower tower = new Tower();
-        // Flyable flyable;
+        AircraftFactory factory = new AircraftFactory();
+        Tower tower = new Tower();
+        Flyable flyable;
 
-        // for ( Instruction instruction : this.instructions ) {
-        //     flyable = factory.newAircraft(null, null, iterations, iterations, iterations)
-        // }
+        for ( Instruction instruction : this.instructions ) {
+            Coordinates coordinates = instruction.getCoordinates();
+
+            flyable = factory.newAircraft(
+                instruction.getType(), 
+                instruction.getName(), 
+                coordinates.getLongitude(), 
+                coordinates.getLatitude(), 
+                coordinates.getHeight()
+            );
+            tower.register(flyable);
+        }
+        for ( int i = 0 ; i < this.iterations ; ++i ) {
+            tower.conditionsChanged();
+        }
     }
 
     public void show() {
