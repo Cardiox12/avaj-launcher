@@ -66,12 +66,12 @@ public class Simulation {
 
     public void execute() {
         AircraftFactory factory = new AircraftFactory();
-        Tower tower = new Tower();
+        WeatherTower tower = new WeatherTower();
         Flyable flyable;
 
         for ( Instruction instruction : this.instructions ) {
             Coordinates coordinates = instruction.getCoordinates();
-
+            
             flyable = factory.newAircraft(
                 instruction.getType(), 
                 instruction.getName(), 
@@ -79,6 +79,7 @@ public class Simulation {
                 coordinates.getLatitude(), 
                 coordinates.getHeight()
             );
+            flyable.registerTower(tower);
             tower.register(flyable);
         }
         for ( int i = 0 ; i < this.iterations ; ++i ) {

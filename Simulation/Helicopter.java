@@ -5,6 +5,7 @@ public class Helicopter extends Aircraft implements Flyable {
 
     Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
+        super.setType("Helicopter");
     }
 
     public void updateConditions() {

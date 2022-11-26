@@ -9,6 +9,7 @@ public class Main {
 
         try {
             simulation.readScenario("scenario.txt");
+            simulation.execute();
         } catch (SimulationException e) {
             System.out.println(e.toString());
         }

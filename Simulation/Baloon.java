@@ -5,6 +5,7 @@ public class Baloon extends Aircraft implements Flyable {
 
     Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
+        super.setType("Baloon");
     }
 
     public void updateConditions() {

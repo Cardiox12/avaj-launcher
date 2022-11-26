@@ -11,11 +11,19 @@ public class Tower {
     }
 
     public void register(Flyable flyable) {
+        Aircraft aircraft = (Aircraft)flyable;
+
+        this.announce(aircraft, "registered to weather tower");
         this.observers.add(flyable);
     }
 
     public void unregister(Flyable flyable) {
+        this.announce((Aircraft)flyable, "unregistered from weather tower");
         this.observers.remove(flyable);
+    }
+
+    private void announce(Aircraft aircraft, String message) {
+        System.out.printf("Tower says: %s %s\n", aircraft.toString(), message);
     }
 
     protected void conditionsChanged() {
