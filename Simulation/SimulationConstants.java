@@ -1,9 +1,5 @@
 package Simulation;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.logging.Logger;
-
 public class SimulationConstants {
     public static final int MAX_HEIGHT = 100;
     public static final int MAX_LONGITUDE = 360;
