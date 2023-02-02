@@ -1,5 +1,4 @@
-import java.io.IOException;
-
+import Simulation.Logger;
 import Simulation.Simulation;
 import Simulation.Exceptions.SimulationException;
 
@@ -12,6 +11,8 @@ public class Main {
             simulation.execute();
         } catch (SimulationException e) {
             System.out.println(e.toString());
+        } finally {
+            Logger.logger.close();
         }
     }
 }
